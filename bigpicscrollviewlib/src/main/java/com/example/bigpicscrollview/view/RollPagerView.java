@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.database.DataSetObserver;
 import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.PagerAdapter;
@@ -19,11 +18,11 @@ import android.view.animation.Interpolator;
 import android.widget.RelativeLayout;
 import android.widget.Scroller;
 
+import com.example.bigpicscrollview.R;
 import com.example.bigpicscrollview.adapter.LoopPagerAdapter;
 import com.example.bigpicscrollview.interfaces.HintView;
 import com.example.bigpicscrollview.interfaces.HintViewDelegate;
 import com.example.bigpicscrollview.interfaces.OnItemClickListener;
-import com.example.how2use.R;
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
@@ -204,6 +203,7 @@ public class RollPagerView extends RelativeLayout implements OnPageChangeListene
      * 提示点代理
      *
      * @param delegate 代理
+     * @return this
      */
     public RollPagerView setHintViewDelegate(HintViewDelegate delegate) {
         this.mHintViewDelegate = delegate;
@@ -236,10 +236,8 @@ public class RollPagerView extends RelativeLayout implements OnPageChangeListene
         lp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
         mHintView.setLayoutParams(lp);
 
-        GradientDrawable gd = new GradientDrawable();
-        gd.setColor(color);
-        gd.setAlpha(alpha);
-        mHintView.setBackgroundDrawable(gd);
+        mHintView.setBackgroundColor(color);
+        mHintView.setAlpha(alpha);
 
         mHintViewDelegate.initView(mAdapter == null ? 0 : mAdapter.getCount(), gravity, spacing, (HintView) mHintView);
     }
@@ -249,6 +247,7 @@ public class RollPagerView extends RelativeLayout implements OnPageChangeListene
      * 设置viewager滑动动画持续时间
      *
      * @param during 滑动动画持续时间
+     * @return this
      */
     public RollPagerView setAnimationDurtion(final int during) {
         try {
@@ -297,6 +296,7 @@ public class RollPagerView extends RelativeLayout implements OnPageChangeListene
      * 在代码中设置大图滚动间隔时间
      *
      * @param delay 间隔时间
+     * @return this
      */
     public RollPagerView setPlayDelay(int delay) {
         this.delay = delay;
@@ -331,6 +331,7 @@ public class RollPagerView extends RelativeLayout implements OnPageChangeListene
      * 在Activity中对每个滚动大图进行监听
      *
      * @param listener 每个条目被点击时的监听
+     * @return this
      */
     public RollPagerView setOnItemClickListener(OnItemClickListener listener) {
         this.mOnItemClickListener = listener;
@@ -339,6 +340,11 @@ public class RollPagerView extends RelativeLayout implements OnPageChangeListene
 
     /**
      * 设置提示view的位置
+     * @param left 左padding
+     * @param top 上padding
+     * @param right 右padding
+     * @param bottom 下padding
+     * @return this
      */
     public RollPagerView setHintPadding(int left, int top, int right, int bottom) {
         paddingLeft = left;
@@ -350,6 +356,8 @@ public class RollPagerView extends RelativeLayout implements OnPageChangeListene
     }
     /**
      * 设置提示点的间隔
+     * @param spacing 提示点间隔
+     * @return this
      */
     public RollPagerView setHintSpacing(int spacing) {
         this.spacing = spacing;
@@ -359,6 +367,7 @@ public class RollPagerView extends RelativeLayout implements OnPageChangeListene
      * 设置提示view的透明度
      *
      * @param alpha 0为全透明  255为实心
+     * @return this
      */
     public RollPagerView setHintAlpha(int alpha) {
         this.alpha = alpha;
@@ -371,7 +380,8 @@ public class RollPagerView extends RelativeLayout implements OnPageChangeListene
      * 只需new一个实现HintView的View传进来
      * 会自动将你的view添加到本View里面。重新设置LayoutParams。
      *
-     * @param hintview
+     * @param hintview 传入的提示view
+     * @return this
      */
     public RollPagerView setHintView(HintView hintview) {
 
@@ -398,6 +408,7 @@ public class RollPagerView extends RelativeLayout implements OnPageChangeListene
      * 为滚动大图设置Adapter
      *
      * @param adapter 滚动大图的adapter
+     * @return this
      */
     public RollPagerView setAdapter(PagerAdapter adapter) {
         mViewPager.setAdapter(adapter);
