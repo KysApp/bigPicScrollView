@@ -2,7 +2,7 @@ BigPicScrollView使用说明
 =
 #### 声明
         本项目是在RollViewPager这个项目的基础上进行改动，以方便自己对这个项目的研究，维护和使用，非常感谢Jude95的代码
-        [点击这里可以链接到Jude95的源码](https://github.com/Jude95/RollViewPager)
+        [点击这里可以链接到Jude95的源码](https://github.com/Jude95/RollViewPager/)
 
 ##### lib导入语句：compile 'com.example.bigpicscrollview:bigpicscrollviewlib:1.0.0'
 
