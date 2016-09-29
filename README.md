@@ -15,7 +15,6 @@ BigPicScrollView使用说明
         app:rollviewpager_hint_paddingBottom
         app:rollviewpager_play_delay 大图切换时间
         app:rollviewpager_hint_color 提示点父控件的颜色
-        app:rollviewpager_hint_alpha 提示点父控件的透明度
 
 #### Step2：写出RollPagerView的适配器
     继承LoopPagerAdapter

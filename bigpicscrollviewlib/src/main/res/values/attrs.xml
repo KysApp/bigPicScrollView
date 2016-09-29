@@ -18,7 +18,6 @@
 
         <attr name="rollviewpager_play_delay" format="integer" />
         <attr name="rollviewpager_hint_color" format="color" />
-        <attr name="rollviewpager_hint_alpha" format="integer" />
         <attr name="rollviewpager_hint_spacing" format="dimension" />
     </declare-styleable>
 </resources>

@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
-import com.example.bigpicscrollview.R;
 import com.example.bigpicscrollview.interfaces.OnItemClickListener;
 import com.example.bigpicscrollview.view.CustomHint;
 import com.example.bigpicscrollview.view.RollPagerView;

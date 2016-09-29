@@ -49,9 +49,6 @@ public class RollPagerView extends RelativeLayout implements OnPageChangeListene
     //hint颜色
     private int color;
 
-    //hint透明度
-    private int alpha;
-
     private int paddingLeft;
     private int paddingTop;
     private int paddingRight;
@@ -103,8 +100,7 @@ public class RollPagerView extends RelativeLayout implements OnPageChangeListene
         TypedArray type = getContext().obtainStyledAttributes(attrs, R.styleable.RollViewPager);
         gravity = type.getInteger(R.styleable.RollViewPager_rollviewpager_hint_gravity, 1);
         delay = type.getInt(R.styleable.RollViewPager_rollviewpager_play_delay, 0);
-        color = type.getColor(R.styleable.RollViewPager_rollviewpager_hint_color, Color.BLACK);
-        alpha = type.getInt(R.styleable.RollViewPager_rollviewpager_hint_alpha, 0);
+        color = type.getColor(R.styleable.RollViewPager_rollviewpager_hint_color, Color.parseColor("#00000000"));
         paddingLeft = (int) type.getDimension(R.styleable.RollViewPager_rollviewpager_hint_paddingLeft, 0);
         paddingRight = (int) type.getDimension(R.styleable.RollViewPager_rollviewpager_hint_paddingRight, 0);
         paddingTop = (int) type.getDimension(R.styleable.RollViewPager_rollviewpager_hint_paddingTop, 0);
@@ -237,7 +233,6 @@ public class RollPagerView extends RelativeLayout implements OnPageChangeListene
         mHintView.setLayoutParams(lp);
 
         mHintView.setBackgroundColor(color);
-        mHintView.setAlpha(alpha);
 
         mHintViewDelegate.initView(mAdapter == null ? 0 : mAdapter.getCount(), gravity, spacing, (HintView) mHintView);
     }
@@ -361,17 +356,6 @@ public class RollPagerView extends RelativeLayout implements OnPageChangeListene
      */
     public RollPagerView setHintSpacing(int spacing) {
         this.spacing = spacing;
-        return this;
-    }
-    /**
-     * 设置提示view的透明度
-     *
-     * @param alpha 0为全透明  255为实心
-     * @return this
-     */
-    public RollPagerView setHintAlpha(int alpha) {
-        this.alpha = alpha;
-        initHint((HintView) mHintView);
         return this;
     }
 
